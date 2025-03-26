@@ -89,14 +89,14 @@ backend/
 
 ### 1. 환경 변수 설정
 
-`.env` 파일을 생성하고 다음 내용을 추가하세요:
+`.env` 파일을 생성하고 다음 내용을 추가하세요
 
 ```
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=yourpassword
-DB_NAME=pcprice
-JWT_SECRET=your_secret_key
+DB_HOST=
+DB_USER=
+DB_PASSWORD=
+DB_NAME=
+JWT_SECRET=
 
 ```
 
