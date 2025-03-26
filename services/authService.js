@@ -31,13 +31,13 @@ class AuthService {
         return { message: '로그인 성공!', token };
     }
 
-    // ✅ 로그아웃
+    // 로그아웃
     static async logout(token) {
         blacklist.add(token); // 토큰을 블랙리스트에 추가
         return { message: '로그아웃 성공!' };
     }
 
-    // ✅ 블랙리스트 확인 함수 (JWT 검증 시 활용 가능)
+    // 블랙리스트 확인 함수 (JWT 검증 시 활용 가능)
     static isTokenBlacklisted(token) {
         return blacklist.has(token);
     }
@@ -56,7 +56,7 @@ class AuthService {
         return { message: '회원 정보가 수정되었습니다.' };
     }
 
-    // ✅ 회원 탈퇴
+    // 회원 탈퇴
     static async deleteUser(userId) {
         await User.deleteById(userId);
         return { message: '회원 탈퇴 완료' };
