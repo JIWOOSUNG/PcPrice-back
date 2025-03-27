@@ -10,7 +10,7 @@ class User {
 
     // 이메일로 사용자 조회
     static async findByEmail(email) {
-        const [rows] = await db.execute('SELECT * FROM members WHERE email = ?', [email]);
+        const [rows] = await db.pool.execute('SELECT * FROM members WHERE email = ?', [email]);
         return rows.length ? rows[0] : null;
     }
 
@@ -22,7 +22,7 @@ class User {
             password: this.password
         });
 
-        await db.execute(
+        await await db.pool.execute(
             'INSERT INTO members (name, email, password) VALUES (?, ?, ?)', 
             [this.name, this.email, this.password]
         );
@@ -35,17 +35,12 @@ class User {
             password: this.password,
         });
 
-        await db.execute(
+        await await db.pool.execute(
             'UPDATE members SET name = ?, password = ? WHERE user_id = ?',
             [this.name, this.password, this.id]
         );
     }
 
-    // ✅ 사용자 삭제
-    static async deleteById(id) {
-        console.log(`🗑️ 사용자 삭제: ID=${id}`);
-        await db.execute('DELETE FROM members WHERE user_id = ?', [id]);
-    }
 }
 
 module.exports = User;

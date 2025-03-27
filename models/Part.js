@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('../config/db');
+const {sequelize} = require('../config/db');
 
 const Part = sequelize.define('Part', {
     part_id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
@@ -8,15 +8,15 @@ const Part = sequelize.define('Part', {
     price: { type: DataTypes.DECIMAL(10,2) },
     productUrl: { 
         type: DataTypes.TEXT,
-        field: 'product_url' // ✅ DB 컬럼명 명시
+        field: 'product_url'
     },
     imageUrl: { 
         type: DataTypes.TEXT,
-        field: 'image_url' // ✅ DB 컬럼명 명시
+        field: 'image_url' 
     },
     specList: { 
         type: DataTypes.TEXT,
-        field: 'spec_list' // ✅ DB 컬럼명 명시
+        field: 'spec_list'
     }
 
 }, {
