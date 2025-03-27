@@ -13,7 +13,12 @@ const Part = sequelize.define('Part', {
     imageUrl: { 
         type: DataTypes.TEXT,
         field: 'image_url' // ✅ DB 컬럼명 명시
+    },
+    specList: { 
+        type: DataTypes.TEXT,
+        field: 'spec_list' // ✅ DB 컬럼명 명시
     }
+
 }, {
     tableName: 'parts',
     timestamps: false

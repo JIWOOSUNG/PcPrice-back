@@ -15,9 +15,11 @@ async function scrapeParts(searchQuery) {
             const price = el.querySelector('.price_sect strong')?.innerText.replace(/[^0-9]/g, '');
             const productUrl = el.querySelector('.prod_name a')?.href;
             const imageUrl = el.querySelector('.thumb_image img')?.src;
+            const specList = el.querySelector('.spec_list')?.innerText.trim();
+
 
             if (name && price) {
-                items.push({ name, manufacturer, price: parseFloat(price), productUrl, imageUrl });
+                items.push({ name, manufacturer, price: parseFloat(price), productUrl, imageUrl, specList });
             }
         });
         return items;
