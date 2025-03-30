@@ -6,6 +6,8 @@ const { sequelize } = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const partRoutes = require('./routes/partRoutes');
 const reviewRoutes = require('./routes/reviewRoutes')
+const cartRoutes = require('./routes/cartRoutes')
+
 
 // 환경변수
 const port = process.env.PORT;
@@ -15,6 +17,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/parts', partRoutes);
 app.use("/api/reviews", reviewRoutes);
+app.use("/api/cart", cartRoutes)
 
 // 루트 경로
 app.get('/', (req, res) => {
