@@ -7,7 +7,7 @@ async function getParts(searchQuery) {
     console.log("🔍 크롤링된 데이터:", parts); // 크롤링된 데이터 확인
 
     if (!parts || parts.length === 0) {
-        throw new Error("❌ 크롤링된 데이터가 없습니다.");
+        throw new Error("크롤링된 데이터가 없습니다.");
     }
 
     for (const part of parts) {
@@ -20,7 +20,7 @@ async function getParts(searchQuery) {
             specList: part.specList ? part.specList.trim() : ""
         };
 
-        console.log("💾 저장할 데이터:", partData); //디버깅용
+        console.log("저장할 데이터:", partData); //디버깅용
 
         await Part.findOrCreate({
             where: { name: part.name },

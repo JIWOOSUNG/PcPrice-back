@@ -22,7 +22,7 @@ exports.login = async (req, res) => {
 
 exports.logout = async (req, res) => {
     try {
-        const token = req.headers.authorization?.split(' ')[1]; // Bearer 토큰 추출
+        const token = req.headers.authorization?.split(' ')[1]; 
         if (!token) throw new Error('토큰이 없습니다.');
 
         const result = await AuthService.logout(token);

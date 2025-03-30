@@ -16,7 +16,7 @@ class User {
 
     // 새로운 사용자 저장
     async save() {
-        console.log("💾 저장할 데이터:", {
+        console.log("장할 데이터:", {
             name: this.name,
             email: this.email,
             password: this.password
@@ -29,7 +29,7 @@ class User {
     }
 
     async update() {
-        console.log("📝 업데이트할 데이터:", {
+        console.log("업데이트할 데이터:", {
             id: this.id,
             name: this.name,
             password: this.password,
