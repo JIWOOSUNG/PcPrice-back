@@ -9,7 +9,7 @@ const router = express.Router();
 router.post('/post', reviewController.createReview);
 
 // 특정 부품의 리뷰 조회
-router.get('/detail/:part_id', reviewController.getReviewsByPart);
+router.get('/detail/:part_name', reviewController.getReviewsByPart);
 
 // 리뷰 수정
 router.put('/update/:review_id', reviewController.updateReview);

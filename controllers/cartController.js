@@ -8,6 +8,7 @@ class CartController {
             const cart = await CartService.addToCart(user_id, part_id, quantity);
             res.status(201).json({ message: '장바구니에 추가되었습니다.', cart });
         } catch (error) {
+            console.error("서버에서 오류 발생:", error);  // 서버 오류 로그
             res.status(500).json({ message: '장바구니 추가 실패', error: error.message });
         }
     }

@@ -2,11 +2,17 @@ const express = require('express');
 const app = express();
 const pool = require('./config/db.js');
 const { sequelize } = require('./config/db');
+const cors = require("cors");
 
 const authRoutes = require('./routes/authRoutes');
 const partRoutes = require('./routes/partRoutes');
 const reviewRoutes = require('./routes/reviewRoutes')
 const cartRoutes = require('./routes/cartRoutes')
+
+app.use(cors({
+  origin: "http://localhost:3001",  
+  credentials: true,
+}));
 
 
 // 환경변수

@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const AuthService = require('../services/authService');
-const SECRET_KEY = 'mysecretkey';
+const SECRET_KEY = process.env.JWT_SECRET;  
 
 exports.authenticate = (req, res, next) => {
     try {

@@ -12,11 +12,13 @@ class Cart {
     // 장바구니 상품 추가
     async add() {
         const [result] = await db.pool.execute(
-            `INSERT INTO carts (part_id, user_id, quantity) VALUES (?, ?, ?)`,
+            `INSERT INTO carts (part_id, user_id, quantity, added_at) VALUES (?, ?, ?, NOW())`,
             [this.part_id, this.user_id, this.quantity]
         );
-        this.cart_id = result.insertId;
+        this.cart_id = result.insertId;  // 자동 생성된 cart_id를 설정
+        this.added_at = new Date();  // 현재 시간을 added_at에 설정
     }
+
 
     // 특정 장바구니 조회
     static async findByCartId(cart_id) {

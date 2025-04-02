@@ -1,11 +1,13 @@
 const Cart = require('../models/Cart');
 
 class CartService {
-    // 장바구니 추가
+    // 장바구니에 상품 추가
     static async addToCart(user_id, part_id, quantity) {
-        const cart = new Cart(null, user_id, part_id, quantity, new Date());
-        await cart.add();
-        return cart;
+        // Cart 인스턴스 생성
+        const cart = new Cart(null, user_id, part_id, quantity, null);  // added_at은 모델에서 자동 설정됨
+        await cart.add();  // 장바구니에 추가
+
+        return cart;  // 추가된 장바구니 객체 반환
     }
 
     // 특정 장바구니 조회

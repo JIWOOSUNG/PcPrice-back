@@ -14,6 +14,11 @@ class User {
         return rows.length ? rows[0] : null;
     }
 
+    static async findById(user_id) {
+        const [rows] = await db.pool.query('SELECT * FROM members WHERE user_id = ?', [user_id]);
+        return rows.length > 0 ? new User(...Object.values(rows[0])) : null;
+    }
+
     // 새로운 사용자 저장
     async save() {
         console.log("장할 데이터:", {
@@ -22,7 +27,7 @@ class User {
             password: this.password
         });
 
-        await await db.pool.execute(
+        await db.pool.execute(
             'INSERT INTO members (name, email, password) VALUES (?, ?, ?)', 
             [this.name, this.email, this.password]
         );
@@ -35,7 +40,7 @@ class User {
             password: this.password,
         });
 
-        await await db.pool.execute(
+        await db.pool.execute(
             'UPDATE members SET name = ?, password = ? WHERE user_id = ?',
             [this.name, this.password, this.id]
         );
